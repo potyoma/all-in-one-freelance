@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  all-in-one-freelance-db:
+    image: postgres:17.0-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: all-in-one-local
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: all-in-one-freelance
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    volumes:
+      - './docker/postgres/data:/var/lib/postgresql/data'
